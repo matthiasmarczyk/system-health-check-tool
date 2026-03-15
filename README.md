@@ -24,6 +24,6 @@ Run the script from the terminal:
 py src/system_check.py
 ```
 
-##Purpose
+## Purpose
 
 I built this project to improve my Python skills and learn more about system-related information in IT.
