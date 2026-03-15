@@ -12,7 +12,7 @@ This tool can:
 - show computer name, processor, and Python version
 - test internet connectivity
 - display disk usage information
-- provide a basic RAM-related check note
+- show RAM usage information
 
 ## Technologies
 
@@ -20,6 +20,15 @@ This tool can:
 - platform
 - subprocess
 - shutil
+- psutil
+
+## Installation
+
+Install the required package:
+
+```bash
+py -m pip install -r requirements.txt
+```md
 
 ## How to run
 
@@ -27,5 +36,3 @@ Run the script from the terminal:
 
 ```bash
 py src/system_check.py
-```
-
