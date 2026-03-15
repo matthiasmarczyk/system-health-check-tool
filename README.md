@@ -28,7 +28,7 @@ Install the required package:
 
 ```bash
 py -m pip install -r requirements.txt
-```md
+```
 
 ## How to run
 
@@ -36,3 +36,4 @@ Run the script from the terminal:
 
 ```bash
 py src/system_check.py
+```
