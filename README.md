@@ -6,17 +6,20 @@ This project was created as part of my learning journey into IT support and Pyth
 
 ## Features
 
-This tool shows:
+This tool can:
 
-- operating system
-- computer name
-- processor
-- Python version
+- display operating system information
+- show computer name, processor, and Python version
+- test internet connectivity
+- display disk usage information
+- provide a basic RAM-related check note
 
 ## Technologies
 
 - Python
 - platform
+- subprocess
+- shutil
 
 ## How to run
 
