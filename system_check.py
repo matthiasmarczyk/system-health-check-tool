@@ -1,6 +1,7 @@
 import platform
 import subprocess
 import shutil
+import psutil
 
 
 def show_system_info():
@@ -42,10 +43,10 @@ def check_internet():
 
 def show_disk_info():
     try:
-        memory = shutil.disk_usage("C:\\") if platform.system().lower() == "windows" else shutil.disk_usage("/")
-        total_gb = memory.total / (1024 ** 3)
-        used_gb = memory.used / (1024 ** 3)
-        free_gb = memory.free / (1024 ** 3)
+        disk = shutil.disk_usage("C:\\") if platform.system().lower() == "windows" else shutil.disk_usage("/")
+        total_gb = disk.total / (1024 ** 3)
+        used_gb = disk.used / (1024 ** 3)
+        free_gb = disk.free / (1024 ** 3)
 
         print("\nDisk Information:")
         print(f"Total Space: {total_gb:.2f} GB")
@@ -56,10 +57,22 @@ def show_disk_info():
         print(f"Error: {error}")
 
 
-def show_basic_ram_note():
-    print("\nRAM Information:")
-    print("Detailed RAM information is not included in this version.")
-    print("This version focuses on system, disk, and connectivity checks.")
+def show_ram_info():
+    try:
+        memory = psutil.virtual_memory()
+        total_gb = memory.total / (1024 ** 3)
+        available_gb = memory.available / (1024 ** 3)
+        used_gb = memory.used / (1024 ** 3)
+        percent_used = memory.percent
+
+        print("\nRAM Information:")
+        print(f"Total RAM: {total_gb:.2f} GB")
+        print(f"Available RAM: {available_gb:.2f} GB")
+        print(f"Used RAM: {used_gb:.2f} GB")
+        print(f"RAM Usage: {percent_used}%")
+    except Exception as error:
+        print("\nCould not retrieve RAM information.")
+        print(f"Error: {error}")
 
 
 def main():
@@ -68,7 +81,7 @@ def main():
         print("1 - Show system information")
         print("2 - Test internet connection")
         print("3 - Show disk information")
-        print("4 - Show RAM note")
+        print("4 - Show RAM information")
         print("5 - Exit")
 
         choice = input("Enter a number: ").strip()
@@ -80,7 +93,7 @@ def main():
         elif choice == "3":
             show_disk_info()
         elif choice == "4":
-            show_basic_ram_note()
+            show_ram_info()
         elif choice == "5":
             print("\nExiting program.")
             break
