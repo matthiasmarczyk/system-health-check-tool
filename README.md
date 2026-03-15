@@ -1,6 +1,8 @@
 # System Health Check Tool
 
-A small Python project that displays basic system information.
+A simple Python command-line tool that displays basic system information.
+
+This project was created as part of my learning journey into IT support and Python programming.
 
 ## Features
 
