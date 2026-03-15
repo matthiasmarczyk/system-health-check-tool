@@ -40,7 +40,7 @@ def check_internet():
         print(f"Error: {error}")
 
 
-def show_memory_info():
+def show_disk_info():
     try:
         memory = shutil.disk_usage("C:\\") if platform.system().lower() == "windows" else shutil.disk_usage("/")
         total_gb = memory.total / (1024 ** 3)
@@ -78,7 +78,7 @@ def main():
         elif choice == "2":
             check_internet()
         elif choice == "3":
-            show_memory_info()
+            show_disk_info()
         elif choice == "4":
             show_basic_ram_note()
         elif choice == "5":
